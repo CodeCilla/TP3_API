@@ -1,0 +1,23 @@
+{
+  "name": "tp3",
+  "version": "1.0.0",
+  "description": "API Tasks",
+  "homepage": "https://github.com/CodeCilla/TP3_API#readme",
+  "bugs": {
+    "url": "https://github.com/CodeCilla/TP3_API/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeCilla/TP3_API.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
