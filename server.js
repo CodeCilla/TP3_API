@@ -28,17 +28,34 @@ app.post('/tasks', (req, res) => {
 });
 
 app.delete('/tasks/:id', (req, res) => {
-  const taskId = parseInt(req.params.id);
-  tasks = tasks.filter((t) => t.id !== taskId);
-  if (tasks.length === 0) {
-    return res.status(404).json({ error: 'No task in list' });
+  try {
+    const taskId = parseInt(req.params.id, 10);
+
+    // Vérifier que la tâche existe
+    const task = tasks.find((t) => t.id === taskId);
+    if (!task) {
+      return res.status(404).json({ error: 'Task not found' });
+    }
+
+    // Supprimer la tâche
+    tasks = tasks.filter((t) => t.id !== taskId);
+
+    res.status(200).json({ message: 'Task deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
   }
-  delete tasks[taskId];
 });
 
 app.put('/tasks/:id', (req, res) => {
-  const taskId = parseInt(req.params.id);
+  const taskId = parseInt(req.params.id, 10);
   const task = tasks.find((t) => t.id === taskId);
+  if (!task) {
+    return res.status(404).json({ error: 'Task not found' });
+  }
+  task.title = req.body.title;
+  task.completed = req.body.completed;
+  res.status(200).json(task);
 });
 
 app.listen(port, () => {
