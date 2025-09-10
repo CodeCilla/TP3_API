@@ -57,6 +57,16 @@ app.put('/tasks/:id', (req, res) => {
   task.completed = req.body.completed;
   res.status(200).json(task);
 });
+// ajout du patch 
+app.patch('/tasks/:id/completed', (req,res) => {
+  const taskId = parseInt(req.params.id);
+  const task = tasks.find((t) => t.id === taskId);
+  if (!task) {
+    return res.status(404).json({error : 'Task not found'});
+  }
+    task.completed = req.body.completed;
+    res.status(200).json(task);
+});
 
 app.listen(port, () => {
   console.log(`app listening on port http://localhost:${port}`);
