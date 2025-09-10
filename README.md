@@ -8,11 +8,11 @@ A simple RESTful API for managing tasks, built with Express and Node.js.
 
 ## Getting Started
 
-- **Start server:**  
+- **Start server:**
   ```
   npm run start
   ```
-- **Development mode (with nodemon):**  
+- **Development mode (with nodemon):**
   ```
   npm run dev
   ```
@@ -23,13 +23,13 @@ Server runs at: [http://localhost:3000](http://localhost:3000)
 
 ## Available Routes
 
-| Method | Endpoint        | Description                |
-|--------|----------------|----------------------------|
-| GET    | `/tasks`       | Get all tasks              |
-| POST   | `/tasks`       | Create a new task          |
-| PUT    | `/tasks/:id`   | Update a task by ID        |
-| DELETE | `/tasks/:id`   | Delete a task by ID        |
-| PATCH  | `/tasks/:id`   | (To be implemented)        |
+| Method | Endpoint     | Description             |
+| ------ | ------------ | ----------------------- |
+| GET    | `/tasks`     | Get all tasks           |
+| POST   | `/tasks`     | Create a new task       |
+| PUT    | `/tasks/:id` | Update a task by ID     |
+| DELETE | `/tasks/:id` | Delete a task by ID     |
+| PATCH  | `/tasks/:id` | Change task in complete |
 
 ---
 
