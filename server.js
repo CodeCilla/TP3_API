@@ -29,7 +29,7 @@ app.post('/tasks', (req, res) => {
 
 app.delete('/tasks/:id', (req, res) => {
   try {
-    const taskId = parseInt(req.params.id, 10);
+    const taskId = parseInt(req.params.id);
 
     // Vérifier que la tâche existe
     const task = tasks.find((t) => t.id === taskId);
@@ -48,7 +48,7 @@ app.delete('/tasks/:id', (req, res) => {
 });
 
 app.put('/tasks/:id', (req, res) => {
-  const taskId = parseInt(req.params.id, 10);
+  const taskId = parseInt(req.params.id);
   const task = tasks.find((t) => t.id === taskId);
   if (!task) {
     return res.status(404).json({ error: 'Task not found' });
@@ -56,6 +56,16 @@ app.put('/tasks/:id', (req, res) => {
   task.title = req.body.title;
   task.completed = req.body.completed;
   res.status(200).json(task);
+});
+// ajout du patch 
+app.patch('/tasks/:id/completed', (req,res) => {
+  const taskId = parseInt(req.params.id);
+  const task = tasks.find((t) => t.id === taskId);
+  if (!task) {
+    return res.status(404).json({error : 'Task not found'});
+  }
+    task.completed = req.body.completed;
+    res.status(200).json(task);
 });
 
 app.listen(port, () => {
