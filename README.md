@@ -1,6 +1,6 @@
 # Task Management API with Express and Node.js
 
-**Author:** Priscilla RENAULT
+**Author:** Priscilla Mickael
 
 A simple RESTful API for managing tasks, built with Express and Node.js.
 
