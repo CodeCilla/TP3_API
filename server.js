@@ -64,6 +64,9 @@ app.patch('/tasks/:id/completed', (req, res) => {
   if (!task) {
     return res.status(404).json({ error: 'Task not found' });
   }
+  if (task.completed === true) {
+    return res.status(400).json({ error: 'Task is already completed' });
+  }
 
   task.completed = req.body.completed;
   res.status(200).json(task);
